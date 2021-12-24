@@ -1,0 +1,19 @@
+columns:
+    id:
+        label: id
+        type: number
+    title:
+        label: title
+        type: text
+    description:
+        label: description
+        type: text
+    date:
+        label: date
+        type: text
+    language:
+        label: language
+        type: text
+    video:
+        label: video
+        type: text

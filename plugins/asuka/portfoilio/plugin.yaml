@@ -1,0 +1,11 @@
+plugin:
+    name: 'asuka.portfoilio::lang.plugin.name'
+    description: 'asuka.portfoilio::lang.plugin.description'
+    author: Asuka
+    icon: oc-icon-angellist
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Portfolio
+        url: asuka/portfoilio/portfoiliocontroller
+        icon: icon-angellist

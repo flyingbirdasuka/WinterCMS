@@ -1,0 +1,11 @@
+plugin:
+    name: 'asuka.resume::lang.plugin.name'
+    description: 'asuka.resume::lang.plugin.description'
+    author: Asuka
+    icon: oc-icon-adjust
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Jobs
+        url: asuka/resume/jobs
+        icon: icon-at

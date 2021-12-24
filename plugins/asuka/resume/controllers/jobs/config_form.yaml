@@ -1,0 +1,10 @@
+name: Jobs
+form: $/asuka/resume/models/jobs/fields.yaml
+modelClass: Asuka\Resume\Models\Jobs
+defaultRedirect: asuka/resume/jobs
+create:
+    redirect: 'asuka/resume/jobs/update/:id'
+    redirectClose: asuka/resume/jobs
+update:
+    redirect: asuka/resume/jobs
+    redirectClose: asuka/resume/jobs

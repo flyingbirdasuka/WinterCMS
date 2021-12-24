@@ -1,0 +1,5 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table asuka_resume_jobs'
+    - builder_table_create_asuka_resume_jobs.php

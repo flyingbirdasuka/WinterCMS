@@ -1,0 +1,153 @@
+title = "Home page"
+url = "/"
+layout = "default"
+is_hidden = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog-page"
+postPage = "blog-page"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "blog/category"
+==
+
+<?php 
+use Asuka\Portfoilio\Models\portfolio;
+use Asuka\Resume\Models\Jobs;
+
+function onStart(){
+    $this['portfolios'] = Portfolio::orderBy('id','desc')->get();
+    $this['jobs'] = Jobs::orderBy('id','desc')->get();
+
+}
+
+==
+<body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-shrink" id="mainNav">
+        
+            <div class="container">
+                <a class="navbar-brand" href="/"><img src="{{ 'assets/img/logo.png' | theme }}" style="width: 50px; height: 50px;" alt="..."></a>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#about">Resume</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#team">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-heading">Welcome To My Portfolio!</div>
+                <div class="masthead-subheading text-uppercase">I'M A JAPANESE WEB DEVELOPER LIVING IN THE NETHERLANDS</div>
+                <a class="btn btn-primary btn-xl text-uppercase" href="#about">Who am I?</a>
+            </div>
+        </header>
+      
+        <!-- Portfolio Grid-->
+        <section class="page-section bg-light" id="portfolio">
+            <div class="container">
+                <div class="text-center">
+                
+                    <h2 class="section-heading text-uppercase">Portfolio</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+                <div class="row">
+                    {% if portfolios|length %}
+                        {% for portfolio in portfolios %}
+
+                          <div class="col-lg-4 col-sm-6 mb-4">
+                                            <!-- Portfolio item 1-->
+                                            <div class="portfolio-item">
+                                                <a class="portfolio-link" data-bs-toggle="modal" href="/portfolio/{{portfolio.id}}">
+                                                    <div class="portfolio-hover">
+                                                        <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i> View details</div>
+                                                    </div>
+                                                    <img class="img-fluid" src="{{portfolio.image.path}}" alt>
+                                                </a>
+                                                <div class="portfolio-caption">
+                                                    <div class="portfolio-caption-heading">{{ portfolio.title }} </div>
+                                                    <div class="portfolio-caption-subheading text-muted">{{ portfolio.language }}</div>
+                                                </div>
+                                            </div>
+                            </div>
+                     
+                            {% endfor %}    
+
+                       
+                        {% endif %}
+                    </div>
+           </div>
+        </section>
+
+        <!-- About-->
+      <section class="page-section" id="about">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">MY RESUME</h2>
+                    <h3 class="section-subheading text-muted">Professional Experience </h3>
+                </div>
+                <ul class="timeline">
+                  {% if jobs|length %}
+                        {% for job in jobs %}   
+                    <li class="{{job.class}}">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="{{ job.image.path }}" alt="..."></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>{{job.period}}</h4>
+                                <h4 class="subheading">{{job.title}}</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">
+                                {{ html_clean(job.description) }}
+                            </p></div>
+                        </div>
+                    </li>
+                        {% endfor %}    
+                    {% endif %} 
+
+
+                 
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <h4>
+                                Be Part
+                                <br>
+                                Of Our
+                                <br>
+                                Story!
+                            </h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+      <section class="page-section bg-light" id="team">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <a href="/"><img class="mx-auto rounded-circle" src="{{ 'assets/img/Asuka.jpeg' | theme }}" alt="..."></a>
+                            <ul>
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg><strong>Name:</strong> <span>Asuka Watanabe</span></li>
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg><strong>Website:</strong> <span>dev.asukamethod.com</span></li>
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg><strong>Phone:</strong> <span>+31-6-2140-1639</span></li>
+                                 <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg><strong>Email:</strong> <span>info@asukamethod.com</span></li>
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg><strong>Degree:</strong> <span>Bachelor</span></li>
+                          </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">I have been living, studying and working in the Netherlands since 2006. In 2018 I founded my own dance business called ‘Asuka Method’, this was designed to train the body and increase mind awareness in order to get the best potential out of people and to help them to reach their personal goals. During this time I have been designing, marketing and managing my Wordpress website, it was through this that I became more interested in web development and decided to pursue this route for my career. Prior to this I was previously working as a professional dancer and dance teacher. I am very open-minded, highly organized, a problem solver as well as a creative thinker. I can work independently on my own and also like learning from and helping other people as a team. I am always eager to learn and a fast learner - a lot of people call me a sponge.</p>
+                    </div>
+                </div>
+            </div>   
+        </section>  
+
+</body>

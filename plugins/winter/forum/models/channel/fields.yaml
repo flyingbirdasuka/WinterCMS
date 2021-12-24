@@ -1,0 +1,42 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    parent:
+        label: winter.forum::lang.data.parent
+        type: relation
+        nameFrom: title
+        emptyOption: winter.forum::lang.data.noparent
+
+    title:
+        label: winter.forum::lang.data.title
+        span: left
+
+    slug:
+        label: winter.forum::lang.data.slug
+        span: right
+        preset: title
+
+    description:
+        label: winter.forum::lang.data.desc
+        type: textarea
+        size: tiny
+
+    is_moderated:
+        label: winter.forum::lang.data.moderated
+        comment: winter.forum::lang.data.is_mod
+        type: checkbox
+        span: auto
+
+    is_hidden:
+        label: winter.forum::lang.data.hidden
+        comment: winter.forum::lang.data.is_hidden
+        type: checkbox
+        span: auto
+
+    is_guarded:
+        label: winter.forum::lang.data.guarded
+        comment: winter.forum::lang.data.is_guarded
+        type: checkbox
+        span: full

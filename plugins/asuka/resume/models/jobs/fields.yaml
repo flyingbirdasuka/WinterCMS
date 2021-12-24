@@ -1,0 +1,29 @@
+fields:
+    title:
+        label: Title
+        span: auto
+        type: text
+    period:
+        label: Period
+        span: auto
+        type: text
+    class:
+        label: Classname
+        span: auto
+        type: text
+    image:
+        label: Image
+        mode: image
+        imageHeight: '200'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        imageWidth: '200'
+        type: fileupload
+    description:
+        label: Description
+        size: ''
+        span: auto
+        type: richeditor

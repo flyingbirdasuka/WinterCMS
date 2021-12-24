@@ -1,0 +1,16 @@
+[viewBag]
+
+[staticMenu]
+==
+<?php
+function onStart()
+{
+    $this['backendUrl'] = Backend::url('/');
+}
+?>
+==
+<!-- Nav -->{% component 'staticMenu' %}
+<nav id="layout-nav" class="navbar navbar-inverse navbar-fixed-top navbar-autohide" role="navigation">
+    {% component 'staticMenu' %}  
+   
+</nav>

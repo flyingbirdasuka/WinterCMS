@@ -1,0 +1,14 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table asuka_portfoilio_portfolios'
+    - builder_table_create_asuka_portfoilio_portfolios.php
+1.0.3:
+    - 'Updated table asuka_portfoilio_portfolios'
+    - builder_table_update_asuka_portfoilio_portfolios.php
+1.0.4:
+    - 'Updated table asuka_portfoilio_portfolios'
+    - builder_table_update_asuka_portfoilio_portfolios_2.php
+1.0.5:
+    - 'Updated table asuka_portfoilio_portfolios'
+    - builder_table_update_asuka_portfoilio_portfolios_3.php

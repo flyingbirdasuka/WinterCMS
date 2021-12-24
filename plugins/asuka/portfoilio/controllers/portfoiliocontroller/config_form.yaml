@@ -1,0 +1,10 @@
+name: PortfoilioController
+form: $/asuka/portfoilio/models/portfolio/fields.yaml
+modelClass: Asuka\Portfoilio\Models\Portfolio
+defaultRedirect: asuka/portfoilio/portfoiliocontroller
+create:
+    redirect: 'asuka/portfoilio/portfoiliocontroller/update/:id'
+    redirectClose: asuka/portfoilio/portfoiliocontroller
+update:
+    redirect: asuka/portfoilio/portfoiliocontroller
+    redirectClose: asuka/portfoilio/portfoiliocontroller

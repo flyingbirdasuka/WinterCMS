@@ -1,0 +1,30 @@
+fields:
+    title:
+        label: Title
+        span: auto
+        type: text
+    description:
+        label: Description
+        span: auto
+        type: text
+    image:
+        label: Image
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload
+    date:
+        label: 'Created date'
+        span: auto
+        type: text
+    language:
+        label: Languages
+        span: auto
+        type: text
+    video:
+        label: Video
+        span: auto
+        type: text
