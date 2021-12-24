@@ -1,0 +1,41 @@
+  <!-- About-->
+      <section class="page-section" id="about">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">MY RESUME</h2>
+                    <h3 class="section-subheading text-muted">Professional Experience </h3>
+                </div>
+                <ul class="timeline">
+                  {% if jobs|length %}
+                        {% for job in jobs %}   
+                    <li class="{{job.class}}">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="{{ job.image.path }}" alt="..."></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>{{job.period}}</h4>
+                                <h4 class="subheading">{{job.title}}</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">
+                                {{ html_clean(job.description) }}
+                            </p></div>
+                        </div>
+                    </li>
+                        {% endfor %}    
+                    {% endif %} 
+
+
+                 
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <h4>
+                                Be Part
+                                <br>
+                                Of Our
+                                <br>
+                                Story!
+                            </h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
